@@ -1,22 +1,31 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators, compose, createStore, applyMiddleware } from 'redux';
+import { fetchWeather } from '../actions/api'
 
-export default class SearchBar extends Component{
+
+class SearchBar extends Component{
+
 
   state = {
     term: ''
   }
 
   onInputChange = (event) => {
-    console.log(event.target.value);
+
     this.setState({
         term: event.target.value
     })
   }
 
   onFormSubmit = (event) => {
-    event.preventDefault();
-
-    //we need to go fetch weather data 
+    event.preventDefault()
+      const newPlace = {
+        term: this.state.term,
+      }
+      console.log(newPlace)
+      this.props.fetchWeather(newPlace);
+      this.setState({term: ''})
   }
 
   render(){
@@ -33,5 +42,28 @@ export default class SearchBar extends Component{
       </form>
     )
   }
-
 }
+
+// function mapDispatchToProps(dispatch){
+//   return bindActionCreators({ fetchWeather }, dispatch)
+// }
+
+// const mapDispatchToProps = (dispatch) => {
+//   return bindActionCreators()
+//     fetchWeather: (newPlace) => {
+//       dispatch(fetchWeather(newPlace))
+//
+//   }
+//
+// }
+ // const mapDispatchToProps = (dispatch) => bindActionCreators({ fetchWeather },dispatch)
+
+ const mapDispatchToProps = dispatch => bindActionCreators(
+  {
+    fetchWeather
+  },
+  dispatch,
+)
+
+
+export default connect(null, mapDispatchToProps)(SearchBar);
