@@ -8,3 +8,5 @@ export default function(state = [], action){
       }
   return state;
   }
+
+//here we want to grab our payload 
