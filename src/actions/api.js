@@ -4,11 +4,8 @@ const ROOT_URL = `https://api.openweathermap.org/data/2.5/forecast?appid=${API_K
 export const FETCH_WEATHER = "FETCH_WEATHER";
 
 export const fetchWeather = (city) => (dispatch) => {
-
-  let c = `${city}`
-  console.log(city)
-  console.log(c)
-  const url = `${ROOT_URL}&q=${c},us`;
+  console.log(city.toString())
+  const url =  `https://api.openweathermap.org/data/2.5/forecast?q=${city},us&appid=${API_KEY}`;
 
   fetch(url)
   .then(res => res.json())
@@ -22,3 +19,5 @@ export const fetchWeather = (city) => (dispatch) => {
   })
 
 }
+
+// `https://api.openweathermap.org/data/2.5/forecast?q=${city},us&appid=${API_KEY}`
