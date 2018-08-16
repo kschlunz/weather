@@ -1,17 +1,10 @@
 import { FETCH_WEATHER } from '../actions/api'
 
-export default function(state = initialState, action){
+export default function(state = [], action){
+  console.log("action recieved", action.payload)
   switch(action.type){
-    case FETCH_WEATHER:
-
-      return{
-        ...state,
-        terms: action.payload
+      case FETCH_WEATHER:
+        return [action.payload, ...state ]
       }
-
-          }
-
-    default:
-      return state;
-
+  return state;
   }

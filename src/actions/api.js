@@ -19,5 +19,3 @@ export const fetchWeather = (city) => (dispatch) => {
   })
 
 }
-
-// `https://api.openweathermap.org/data/2.5/forecast?q=${city},us&appid=${API_KEY}`

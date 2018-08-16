@@ -5,8 +5,6 @@ import { fetchWeather } from '../actions/api'
 
 
 class SearchBar extends Component{
-
-
   state = {
     term: ''
   }
