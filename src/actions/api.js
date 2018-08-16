@@ -17,5 +17,4 @@ export const fetchWeather = (city) => (dispatch) => {
       payload: weather
     })
   })
-
 }
