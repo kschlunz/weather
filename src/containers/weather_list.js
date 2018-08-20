@@ -4,26 +4,63 @@ import { connect } from 'react-redux';
 import Chart from '../components/chart'
 
 
+
 class WeatherList extends Component{
 
 
   renderWeather = () => {
-    if(this.props.weather.forecastArray){
+    if(this.props.weather.forecastArray.city){
+      const name = this.props.weather.forecastArray.city.name
+      const temps = this.props.weather.forecastArray.list.map(weather => weather.main.temp) // go back and write a function to change this to fahrenheit (currently using Kelvin)
+      const pressures = this.props.weather.forecastArray.list.map(weather => weather.main.pressure)
+      const humidities = this.props.weather.forecastArray.list.map(weather => weather.main.humidity)
+      const currentTemp = this.props.weather.currentArray.main.temp
+      const tempMax = this.props.weather.currentArray.main.temp_max
+      const tempMin = this.props.weather.currentArray.main.temp_min
+
+      if(this.props.weather.currentArray.weather[0]){
+        const description = this.props.weather.currentArray.weather[0].description
+      }
+
+
+      function fahrenheit(temps){
+        let f = 0
+        let ftemps = []
+
+        temps.map(i =>{
+            f = (i * 9/5) - 459.67
+            ftemps.push(Math.round(f))
+          })
+    return ftemps
+  }
+
+      function currentF(currentTemp){
+        let f = (currentTemp * 9/5) - 459.67
+        return Math.round(f)
+      }
+
+      return(
+        <tr >
+          <td>{name}</td>
+          <td>
+           Current Temperature: {currentF(currentTemp)}
+           High: {currentF(tempMax)}
+           Low: {currentF(tempMin)}
+           Description: {this.props.weather.currentArray.weather[0] ? (
+             this.props.weather.currentArray.weather[0].description ) : ("no loaded" )}
+
+           </td>
+          <td><Chart data={fahrenheit(temps)} color="green" units="F"/></td>
+          <td><Chart data={pressures} color="orange" units="hPa"/></td>
+          <td><Chart data={humidities} color="red" units="%"/></td>
+        </tr>
+      )
+
       console.log("hi people")
-      console.log(this.props.weather.forecastArray)
+
+      console.log(this.props.weather.forecastArray.city)
     }
 
-
-
-    return(
-      <tr >
-        <td>WHO DIS</td>
-        <td>Current Weather data coming soon</td>
-        <td>I am something</td>
-        <td>rewrite it all</td>
-        <td>some numbers</td>
-      </tr>
-    )
   }
 
   render(){
