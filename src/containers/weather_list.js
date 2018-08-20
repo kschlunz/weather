@@ -8,6 +8,7 @@ class WeatherList extends Component{
 
 
   renderWeather = (cityData) => {
+    console.log(cityData)
     const name = cityData.city.name
     const temps = cityData.list.map(weather => weather.main.temp) // go back and write a function to change this to fahrenheit (currently using Kelvin)
     const pressures = cityData.list.map(weather => weather.main.pressure)
@@ -23,13 +24,14 @@ class WeatherList extends Component{
           })
       return ftemps
     }
-    
+
     return(
       <tr key={name}>
         <td>{name}</td>
-        <td><Chart data={fahrenheit(temps)} color="green"/></td>
-        <td><Chart data={pressures} color="orange"/></td>
-        <td><Chart data={humidities} color="red"/></td>
+        <td>Current Weather data coming soon</td>
+        <td><Chart data={fahrenheit(temps)} color="green" units="F"/></td>
+        <td><Chart data={pressures} color="orange" units="hPa"/></td>
+        <td><Chart data={humidities} color="red" units="%"/></td>
       </tr>
     )
   }
@@ -40,13 +42,16 @@ class WeatherList extends Component{
         <thead>
           <tr>
             <th>City</th>
+            <th>Current Weather</th>
             <th>Temperature (F)</th>
-            <th>Pressure (hP)</th>
+            <th>Pressure (hPa)</th>
             <th>Humidity (%)</th>
           </tr>
         </thead>
         <tbody>
-          {this.props.weather.map(this.renderWeather)}
+        {console.log("FORECAST",this.props.weather.forecastArray.city)}
+        
+        {this.props.weather.forecastArray.map(this.renderWeather)}
         </tbody>
       </table>
     )
@@ -55,8 +60,11 @@ class WeatherList extends Component{
 }
 
 function mapStateToProps(state){
+    console.log("I AM STATE",state)
+  return {
+    weather: state.weather
 
-  return { weather: state.weather }
+  }
 }
 
 export default connect(mapStateToProps)(WeatherList)

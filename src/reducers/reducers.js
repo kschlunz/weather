@@ -1,10 +1,29 @@
-import { FETCH_WEATHER } from '../actions/api'
+import { FETCH_WEATHER, CURRENT_WEATHER } from '../actions/api'
 
-export default function(state = [], action){
-  console.log("action recieved", action.payload)
+const initialState = {
+  forecastArray: [],
+  currentArray: []
+}
+
+export default function(state = initialState, action){
+
   switch(action.type){
       case FETCH_WEATHER:
-        return [action.payload, ...state ]
+
+        return {
+          ...state,
+          forecastArray: action.payload
+        }
+      case CURRENT_WEATHER:
+
+        return {
+          ...state,
+          currentArray: action.payload
+
+
+        }
+
       }
+    
   return state;
   }
