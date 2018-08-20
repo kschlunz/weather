@@ -7,31 +7,21 @@ import Chart from '../components/chart'
 class WeatherList extends Component{
 
 
-  renderWeather = (cityData) => {
-    console.log(cityData)
-    const name = cityData.city.name
-    const temps = cityData.list.map(weather => weather.main.temp) // go back and write a function to change this to fahrenheit (currently using Kelvin)
-    const pressures = cityData.list.map(weather => weather.main.pressure)
-    const humidities = cityData.list.map(weather => weather.main.humidity)
-
-
-    function fahrenheit(temps){
-      let f = 0
-      let ftemps = []
-          temps.map(i =>{
-          f = (i * 9/5) - 459.67
-          ftemps.push(Math.round(f))
-          })
-      return ftemps
+  renderWeather = () => {
+    if(this.props.weather.forecastArray){
+      console.log("hi people")
+      console.log(this.props.weather.forecastArray)
     }
 
+
+
     return(
-      <tr key={name}>
-        <td>{name}</td>
+      <tr >
+        <td>WHO DIS</td>
         <td>Current Weather data coming soon</td>
-        <td><Chart data={fahrenheit(temps)} color="green" units="F"/></td>
-        <td><Chart data={pressures} color="orange" units="hPa"/></td>
-        <td><Chart data={humidities} color="red" units="%"/></td>
+        <td>I am something</td>
+        <td>rewrite it all</td>
+        <td>some numbers</td>
       </tr>
     )
   }
@@ -50,8 +40,8 @@ class WeatherList extends Component{
         </thead>
         <tbody>
         {console.log("FORECAST",this.props.weather.forecastArray.city)}
-        
-        {this.props.weather.forecastArray.map(this.renderWeather)}
+        {this.renderWeather()}
+
         </tbody>
       </table>
     )
