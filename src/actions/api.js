@@ -3,6 +3,7 @@ const ROOT_URL = `https://api.openweathermap.org/data/2.5/forecast?appid=${API_K
 
 export const FETCH_WEATHER = "FETCH_WEATHER";
 export const CURRENT_WEATHER = "CURRENT_WEATHER";
+export const GET_TRAILS = "GET_TRAILS"
 
 export const fetchWeather = (city) => (dispatch) => {
 
@@ -21,7 +22,7 @@ export const fetchWeather = (city) => (dispatch) => {
 }
 
 export const currentWeather = (city) => (dispatch) => {
-
+  console.log("i am city information",city)
   const api = `https://api.openweathermap.org/data/2.5/weather?q=${city},us&appid=${API_KEY}`;
 
   fetch(api)
@@ -34,6 +35,23 @@ export const currentWeather = (city) => (dispatch) => {
       payload: current
     })
   })
+}
+
+export const hikingTrails = (city) => (dispatch) => {
+  console.log("i am lon?", city)
+  const hikeURL = `https://www.hikingproject.com/data/get-trails?lat=40.7306&lon=-73.9867&maxDistance=10&key=200337409-b60064688dd8999085dede640c0a7c95`
+
+  fetch(hikeURL)
+  .then(res => res.json())
+  .then(hiking =>{
+    console.log("iam hiking res", hiking)
+
+    return dispatch({
+      type: GET_TRAILS,
+      payload: hiking
+    })
+  })
+
 }
 
 

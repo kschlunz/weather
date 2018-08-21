@@ -2,12 +2,11 @@ import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import Chart from '../components/chart'
+import HikingTrails from '../components/hiking_trails'
 
 
 
 class WeatherList extends Component{
-
-
   renderWeather = () => {
     if(this.props.weather.forecastArray.city){
       const name = this.props.weather.forecastArray.city.name
@@ -17,10 +16,6 @@ class WeatherList extends Component{
       const currentTemp = this.props.weather.currentArray.main.temp
       const tempMax = this.props.weather.currentArray.main.temp_max
       const tempMin = this.props.weather.currentArray.main.temp_min
-
-      if(this.props.weather.currentArray.weather[0]){
-        const description = this.props.weather.currentArray.weather[0].description
-      }
 
 
       function fahrenheit(temps){
@@ -48,17 +43,13 @@ class WeatherList extends Component{
            Low: {currentF(tempMin)}
            Description: {this.props.weather.currentArray.weather[0] ? (
              this.props.weather.currentArray.weather[0].description ) : ("no loaded" )}
-
            </td>
           <td><Chart data={fahrenheit(temps)} color="green" units="F"/></td>
           <td><Chart data={pressures} color="orange" units="hPa"/></td>
           <td><Chart data={humidities} color="red" units="%"/></td>
         </tr>
+
       )
-
-      console.log("hi people")
-
-      console.log(this.props.weather.forecastArray.city)
     }
 
   }
@@ -76,11 +67,13 @@ class WeatherList extends Component{
           </tr>
         </thead>
         <tbody>
-        {console.log("FORECAST",this.props.weather.forecastArray.city)}
         {this.renderWeather()}
-
         </tbody>
+        <div>
+          <h1><HikingTrails/>HIKING HERE</h1>
+        </div>
       </table>
+
     )
   }
 

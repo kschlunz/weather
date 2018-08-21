@@ -10,7 +10,6 @@ class SearchBar extends Component{
   }
 
   onInputChange = (event) => {
-
     this.setState({
         term: event.target.value
     })
@@ -38,20 +37,6 @@ class SearchBar extends Component{
     )
   }
 }
-
-// function mapDispatchToProps(dispatch){
-//   return bindActionCreators({ fetchWeather }, dispatch)
-// }
-
-// const mapDispatchToProps = (dispatch) => {
-//   return bindActionCreators()
-//     fetchWeather: (newPlace) => {
-//       dispatch(fetchWeather(newPlace))
-//
-//   }
-//
-// }
- // const mapDispatchToProps = (dispatch) => bindActionCreators({ fetchWeather },dispatch)
 
  const mapDispatchToProps = dispatch => bindActionCreators(
   {
