@@ -1,9 +1,10 @@
-import { FETCH_WEATHER, CURRENT_WEATHER, GET_TRAILS } from '../actions/api'
+import { FETCH_WEATHER, CURRENT_WEATHER, GET_TRAILS, GET_BEER } from '../actions/api'
 
 const initialState = {
   forecastArray: [],
   currentArray: [],
-  trailsArray: []
+  trailsArray: [],
+  beerArray: []
 }
 
 export default function(state = initialState, action){
@@ -24,6 +25,12 @@ export default function(state = initialState, action){
           return{
             ...state,
             trailsArray: action.payload
+          }
+
+        case GET_BEER:
+          return{
+            ...state,
+            beerArray: action.payload
           }
 
       }

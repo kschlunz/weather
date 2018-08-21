@@ -5,13 +5,6 @@ import { hikingTrails } from '../actions/api'
 
 class HikingTrails extends Component {
 
-
-  // componentDidMount(){
-  //   console.log("I NOW WORK!!!",this.props.data.coord)
-  //   this.props.hikingTrails(this.props.data.coord)
-  //
-  // }
-
   renderTrails = () => {
     console.log("TRAILS", this.props.trails.trails)
     if(this.props.trails.trails){

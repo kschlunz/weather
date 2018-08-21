@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators, compose, createStore, applyMiddleware } from 'redux';
-import { fetchWeather, currentWeather, hikingTrails } from '../actions/api'
+import { fetchWeather, currentWeather, hikingTrails, beerPlaces } from '../actions/api'
 
 
 class SearchBar extends Component{
@@ -20,6 +20,7 @@ class SearchBar extends Component{
     event.preventDefault()
       this.props.fetchWeather(this.state.term);
       this.props.currentWeather(this.state.term)
+      this.props.beerPlaces(this.state.term)
       this.setState({term: ''})
   }
 
@@ -34,7 +35,7 @@ class SearchBar extends Component{
   }
 
   render(){
-    
+
     return(
       <form onSubmit={this.onFormSubmit}className="input-group">
         <input
@@ -64,7 +65,8 @@ function mapStateToProps(state){
   {
     fetchWeather,
     currentWeather,
-    hikingTrails
+    hikingTrails,
+    beerPlaces
   },
   dispatch,
 )

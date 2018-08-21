@@ -5,6 +5,7 @@ import Chart from '../components/chart'
 import HikingTrails from './hiking_trails'
 import { bindActionCreators, compose, createStore, applyMiddleware } from 'redux';
 import { hikingTrails } from '../actions/api'
+import Beer from '../components/beer'
 
 
 
@@ -60,9 +61,18 @@ class WeatherList extends Component{
   renderHiking = () => {
     if(this.props.weather.currentArray.main){
       return(
-        <h1><HikingTrails data = {this.props.weather.currentArray}/>HIKING HERE</h1>
+        <h1><HikingTrails data = {this.props.weather.currentArray}/></h1>
       )
 
+    }
+  }
+
+  renderBeer = () => {
+    if(this.props.weather){
+      return(
+        <h1><Beer data = {this.props.weather.beerArray}></Beer></h1>
+      )
+      
     }
   }
 
@@ -83,6 +93,9 @@ class WeatherList extends Component{
         </tbody>
         <div>
           {this.renderHiking()}
+        </div>
+        <div>
+          {this.renderBeer()}
         </div>
       </table>
 
