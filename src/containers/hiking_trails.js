@@ -5,27 +5,22 @@ import { hikingTrails } from '../actions/api'
 
 class HikingTrails extends Component {
 
+
   componentDidMount(){
-    console.log("hi i am coords?",this.props.weather.currentArray.coord)
+    console.log(this.props.data.currentArray)
     this.props.hikingTrails()
 
   }
-
-
-
     render(){
-      return <div/> //refer to this def by this.ref.map
+      return (
+        <div>
+        </div>
+      ) 
     }
 
 }
 
-function mapStateToProps(state){
-    console.log("I AM STATE",state)
-  return {
-    weather: state.weather
 
-  }
-}
 
 const mapDispatchToProps = dispatch => bindActionCreators(
  {
@@ -34,4 +29,4 @@ const mapDispatchToProps = dispatch => bindActionCreators(
  dispatch,
 )
 
-export default connect(mapStateToProps, mapDispatchToProps)(HikingTrails)
+export default connect(null, mapDispatchToProps)(HikingTrails)

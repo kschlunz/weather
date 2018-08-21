@@ -3,10 +3,13 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import Chart from '../components/chart'
 import HikingTrails from './hiking_trails'
+import { bindActionCreators, compose, createStore, applyMiddleware } from 'redux';
+import { hikingTrails } from '../actions/api'
 
 
 
 class WeatherList extends Component{
+
   renderWeather = () => {
     if(this.props.weather.forecastArray.city && this.props.weather.currentArray.main){
       const name = this.props.weather.forecastArray.city.name
@@ -47,7 +50,11 @@ class WeatherList extends Component{
           <td><Chart data={fahrenheit(temps)} color="green" units="F"/></td>
           <td><Chart data={pressures} color="orange" units="hPa"/></td>
           <td><Chart data={humidities} color="red" units="%"/></td>
+          <h1><HikingTrails data = {this.props.weather.currentArray}/>HIKING HERE</h1>
         </tr>
+
+
+
 
       )
     }
@@ -69,9 +76,7 @@ class WeatherList extends Component{
         <tbody>
         {this.renderWeather()}
         </tbody>
-        <div>
-          <h1><HikingTrails/>HIKING HERE</h1>
-        </div>
+
       </table>
 
     )
@@ -80,11 +85,18 @@ class WeatherList extends Component{
 }
 
 function mapStateToProps(state){
-    
+
   return {
     weather: state.weather
 
   }
 }
 
-export default connect(mapStateToProps)(WeatherList)
+const mapDispatchToProps = dispatch => bindActionCreators(
+ {
+   hikingTrails
+ },
+ dispatch,
+)
+
+export default connect(mapStateToProps, mapDispatchToProps)(WeatherList)
