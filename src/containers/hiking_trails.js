@@ -7,15 +7,15 @@ class HikingTrails extends Component {
 
 
   componentDidMount(){
-    console.log(this.props.data.currentArray)
-    this.props.hikingTrails()
+    console.log("I NOW WORK!!!",this.props.data.coord)
+    this.props.hikingTrails(this.props.data.coord)
 
   }
     render(){
       return (
         <div>
         </div>
-      ) 
+      )
     }
 
 }

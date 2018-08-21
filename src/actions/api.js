@@ -26,7 +26,7 @@ export const currentWeather = (city) => (dispatch) => {
   fetch(api)
   .then(res => res.json())
   .then(current => {
-    
+
 
     return dispatch({
       type: CURRENT_WEATHER,
@@ -37,7 +37,10 @@ export const currentWeather = (city) => (dispatch) => {
 
 export const hikingTrails = (city) => (dispatch) => {
   console.log("i am lon?", city)
-  const hikeURL = `https://www.hikingproject.com/data/get-trails?lat=40.7306&lon=-73.9867&maxDistance=10&key=200337409-b60064688dd8999085dede640c0a7c95`
+  console.log(city.lon)
+  const lon = city.lon
+  const lat = city.lat
+  const hikeURL = `https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lon}&maxDistance=40&key=200337409-b60064688dd8999085dede640c0a7c95`
 
   fetch(hikeURL)
   .then(res => res.json())

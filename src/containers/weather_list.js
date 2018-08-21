@@ -50,15 +50,20 @@ class WeatherList extends Component{
           <td><Chart data={fahrenheit(temps)} color="green" units="F"/></td>
           <td><Chart data={pressures} color="orange" units="hPa"/></td>
           <td><Chart data={humidities} color="red" units="%"/></td>
-          <h1><HikingTrails data = {this.props.weather.currentArray}/>HIKING HERE</h1>
-        </tr>
-
-
-
+      </tr>
 
       )
     }
 
+  }
+
+  renderHiking = () => {
+    if(this.props.weather.currentArray.main){
+      return(
+        <h1><HikingTrails data = {this.props.weather.currentArray}/>HIKING HERE</h1>
+      )
+
+    }
   }
 
   render(){
@@ -76,7 +81,9 @@ class WeatherList extends Component{
         <tbody>
         {this.renderWeather()}
         </tbody>
-
+        <div>
+          {this.renderHiking()}
+        </div>
       </table>
 
     )
