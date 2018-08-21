@@ -2,13 +2,13 @@ import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import Chart from '../components/chart'
-import HikingTrails from '../components/hiking_trails'
+import HikingTrails from './hiking_trails'
 
 
 
 class WeatherList extends Component{
   renderWeather = () => {
-    if(this.props.weather.forecastArray.city){
+    if(this.props.weather.forecastArray.city && this.props.weather.currentArray.main){
       const name = this.props.weather.forecastArray.city.name
       const temps = this.props.weather.forecastArray.list.map(weather => weather.main.temp) // go back and write a function to change this to fahrenheit (currently using Kelvin)
       const pressures = this.props.weather.forecastArray.list.map(weather => weather.main.pressure)
@@ -80,7 +80,7 @@ class WeatherList extends Component{
 }
 
 function mapStateToProps(state){
-    console.log("I AM STATE",state)
+    
   return {
     weather: state.weather
 

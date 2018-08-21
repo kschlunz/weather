@@ -12,7 +12,6 @@ export const fetchWeather = (city) => (dispatch) => {
   fetch(url)
   .then(res => res.json())
   .then(weather => {
-    console.log(weather)
 
     return dispatch({
       type:FETCH_WEATHER,
@@ -22,13 +21,12 @@ export const fetchWeather = (city) => (dispatch) => {
 }
 
 export const currentWeather = (city) => (dispatch) => {
-  console.log("i am city information",city)
   const api = `https://api.openweathermap.org/data/2.5/weather?q=${city},us&appid=${API_KEY}`;
 
   fetch(api)
   .then(res => res.json())
   .then(current => {
-    console.log(current)
+    
 
     return dispatch({
       type: CURRENT_WEATHER,
