@@ -25,6 +25,7 @@ import Store from './Store'
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers/rootReducer';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const store = createStore(
     rootReducer,
