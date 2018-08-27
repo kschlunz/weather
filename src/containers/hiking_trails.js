@@ -10,9 +10,22 @@ class HikingTrails extends Component {
     if(this.props.trails.trails){
       const trail= this.props.trails.trails.map(t => t.name)
       const trailName = trail.map(name => name)
+      const trailPic = this.props.trails.trails.map(t => t.imgMedium)
+      const pictures = trailPic.map(pic => pic)
+
+      console.log(pictures)
       console.log(trailName)
+
+
       return(
-        <h1>{trailName}</h1>
+          // <img className="card-img-top" src= {`${pictures}`}></img>
+        <div className="card">
+          <div className="card-body">
+            <h5 className="card-title">{trailName}</h5>
+              <p className="card-text">Some info</p>
+          </div>
+        </div>
+
       )
 
     }
