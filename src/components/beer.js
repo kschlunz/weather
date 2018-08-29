@@ -30,7 +30,7 @@ const Beer = (props) => {
 
   return(
 
-    <div align="right">
+    <div style = {{align: "righ"}}>
 
       <h1>{brewery}</h1>
     </div>

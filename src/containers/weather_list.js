@@ -72,7 +72,7 @@ class WeatherList extends Component{
       return(
         <h1><Beer data = {this.props.weather.beerArray}></Beer></h1>
       )
-      
+
     }
   }
 
