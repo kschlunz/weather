@@ -16,3 +16,8 @@ td, th {
 svg {
   height: 150px
 }
+
+.trailComponent {
+  margin-left: 70px;
+  margin-top: 40px;
+}

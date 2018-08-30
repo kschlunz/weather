@@ -43,7 +43,7 @@ class WeatherList extends Component{
 
       return(
         <tr >
-          <td>{name}</td>
+          <td className = "tableFont">{name}</td>
           <td>
            Current Temperature: {currentF(currentTemp)}
            High: {currentF(tempMax)}
@@ -96,7 +96,7 @@ class WeatherList extends Component{
         {this.renderWeather()}
         </tbody>
         </table>
-        <div>
+          <div className = "trailComponent">
           {this.renderHiking()}
         </div>
           <div>
