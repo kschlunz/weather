@@ -32,42 +32,21 @@ class HikingTrails extends Component {
         <div className="card-body">
         <a href={t.url} target="_blank" rel="noopener noreferrer" className="card-link">Trail Information</a>
         </div>
-
     </div>
-
-
-
-
-
         )
       })
 
-
-
-
-
       return(
-
-          <div className = "row">
-
+        <div className = "row">
           {trail}
-
         </div>
-
-
       )
-
     }
-
   }
-
-
     render(){
       return (
         <div>
-
           {this.renderTrails()}
-
         </div>
       )
     }

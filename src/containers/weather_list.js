@@ -44,11 +44,14 @@ class WeatherList extends Component{
       return(
         <tr >
           <td className = "tableFont">{name}</td>
-          <td>
-           Current Temperature: {currentF(currentTemp)}
-           High: {currentF(tempMax)}
-           Low: {currentF(tempMin)}
-           Description: {this.props.weather.currentArray.weather[0] ? (
+          <td className = "currTemp">
+           Current Temperature:  {currentF(currentTemp)}
+           <br></br>
+           High:  {currentF(tempMax)}
+           <br></br>
+           Low:  {currentF(tempMin)}
+           <br></br>
+           Description:  {this.props.weather.currentArray.weather[0] ? (
              this.props.weather.currentArray.weather[0].description ) : ("no loaded" )}
            </td>
           <td><Chart data={fahrenheit(temps)} color="green" units="F"/></td>
@@ -85,7 +88,7 @@ class WeatherList extends Component{
       <table className= "table table-hover">
         <thead>
           <tr>
-            <th>City</th>
+            <th className = "titleFont">City</th>
             <th>Current Weather</th>
             <th>Temperature (F)</th>
             <th>Pressure (hPa)</th>
@@ -99,7 +102,9 @@ class WeatherList extends Component{
           <div className = "trailComponent">
           {this.renderHiking()}
         </div>
-          <div>
+          <div className = "breweryComponent">
+
+            
             {this.renderBeer()}
           </div>
       </Fragment>

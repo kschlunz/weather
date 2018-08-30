@@ -6,15 +6,15 @@ const Beer = (props) => {
   const brewery = props.data.map(b => {
       if(b.status === "Brewery"){
         return (
-          <div className="card" style={{width: 30 + 'rem' }}>
+        <div className="card" style={{width: 30 + 'rem' }}>
           <div className="card-body">
-    <h1 className="card-title">{b.name}</h1>
-    <h6 className="card-subtitle mb-2 text-muted">{b.street}</h6>
-    <h6 className="card-subtitle mb-2 text-muted">{b.city} {b.state} {b.zip} </h6>
-    <h6 className="card-subtitle mb-2 text-muted">{b.phone} </h6>
-    <a href={'https://www.'+b.url} target="_blank" rel="noopener noreferrer" className="card-link">Brewery Info</a>
-  </div>
-</div>
+            <h1 className="card-title">{b.name}</h1>
+              <h6 className="card-subtitle mb-2 text-muted">{b.street}</h6>
+                <h6 className="card-subtitle mb-2 text-muted">{b.city} {b.state} {b.zip} </h6>
+                <h6 className="card-subtitle mb-2 text-muted">{b.phone} </h6>
+                  <a href={'https://www.'+b.url} target="_blank" rel="noopener noreferrer" className="card-link">Brewery Info</a>
+                </div>
+              </div>
         )
       }
   })
@@ -29,10 +29,9 @@ const Beer = (props) => {
 
 
   return(
+    <div className = "row">
 
-    <div style = {{align: "righ"}}>
-
-      <h1>{brewery}</h1>
+      {brewery}
     </div>
 
   )
