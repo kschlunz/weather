@@ -13,7 +13,7 @@ class HikingTrails extends Component {
     if(this.props.trails.trails){
       const trail= this.props.trails.trails.map(t => {
         return(
-
+        
           <div className = "card-group">
             <div className="card" style={{width: 50 + 'rem' }}>
               <img className="card-img-top" src={t.imgMedium ? ( t.imgMedium ) : ("http://appalachiantrail.org/images/default-source/default-album/trailfocus.jpg?sfvrsn=2")} />
@@ -40,6 +40,7 @@ class HikingTrails extends Component {
 </div>
 
 
+
         )
       })
 
@@ -49,11 +50,11 @@ class HikingTrails extends Component {
 
       return(
         <div>
-        <div className="row">
-          <div className="col-sm-6">
+        <div>
+          <div>
           {trail}
         </div>
-        </div>
+      </div>
         </div>
       )
 

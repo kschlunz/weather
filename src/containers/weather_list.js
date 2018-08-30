@@ -1,11 +1,14 @@
 import React from 'react';
-import { Component } from 'react';
+import { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import Chart from '../components/chart'
 import HikingTrails from './hiking_trails'
 import { bindActionCreators, compose, createStore, applyMiddleware } from 'redux';
 import { hikingTrails } from '../actions/api'
 import Beer from '../components/beer'
+import { Container, Row, Col } from 'reactstrap';
+import Grid from 'react-css-grid'
+
 
 
 
@@ -78,6 +81,7 @@ class WeatherList extends Component{
 
   render(){
     return(
+      <Fragment>
       <table className= "table table-hover">
         <thead>
           <tr>
@@ -91,13 +95,14 @@ class WeatherList extends Component{
         <tbody>
         {this.renderWeather()}
         </tbody>
+        </table>
         <div>
           {this.renderHiking()}
         </div>
-        <div>
-          {this.renderBeer()}
-        </div>
-      </table>
+          <div>
+            {this.renderBeer()}
+          </div>
+      </Fragment>
 
     )
   }
