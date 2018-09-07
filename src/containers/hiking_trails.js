@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators, compose, createStore, applyMiddleware } from 'redux';
-import { hikingTrails } from '../actions/api'
-import { Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button } from 'reactstrap';
+import { hikingTrails } from '../actions/api';
+import { Card, CardImg, CardText, CardBody,CardTitle, CardSubtitle, Button } from 'reactstrap';
+import HikingFilter from '../components/hiking_filter';
 
 
 
@@ -31,11 +31,9 @@ class HikingTrails extends Component {
               <li className="list-group-item"><a href={t.url} target="_blank" rel="noopener noreferrer" className="card-link">Trail Information</a></li>
               </ul>
               </div>
-    </div>
+          </div>
         )
       })
-
-
       return(
         <div className = "row">
           {trail}
@@ -43,11 +41,26 @@ class HikingTrails extends Component {
       )
     }
   }
+
+  renderFilter = () => {
+    if(this.props.trails.trails){
+      return(
+          <h1><HikingFilter data = {this.props.trails.trails}/></h1>  
+      )
+    }
+  }
+
     render(){
       return (
-        <div>
-          {this.renderTrails()}
-        </div>
+        <Fragment>
+          <div>
+            {this.renderFilter()}
+          </div>
+          <div>
+            {this.renderTrails()}
+          </div>
+        </Fragment>
+
       )
     }
 
