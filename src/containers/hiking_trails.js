@@ -13,12 +13,12 @@ class HikingTrails extends Component {
     if(this.props.trails.trails){
       const trail= this.props.trails.trails.map(t => {
         return(
-            <div className="card" style={{width: 40 + 'rem' }}>
-              <img className="card-img-top" src={t.imgSqSmall ? ( t.imgSqSmall) : ("http://appalachiantrail.org/images/default-source/default-album/trailfocus.jpg?sfvrsn=2")} />
+            <div className="card" style={{width: 30 + 'rem' }}>
+              <img className="card-img-top" src={t.imgSqSmall? ( t.imgSqSmall) : ("http://appalachiantrail.org/images/default-source/default-album/trailfocus.jpg?sfvrsn=2")} />
                 <div className="card-body">
                   <h1 className="card-title">{t.name}</h1>
                     <h2 className="card-text">{t.location} </h2>
-                      <h3 className="card-text">{t.summary} </h3>
+                      <h4 className="card-text">{t.summary} </h4>
 
               <ul className="list-group list-group-flush">
               <li className="list-group-item">Difficulty: {t.difficulty}</li>
