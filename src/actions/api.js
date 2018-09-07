@@ -7,7 +7,6 @@ export const GET_TRAILS = "GET_TRAILS"
 export const GET_BEER = "GET_BEER"
 
 export const fetchWeather = (city) => (dispatch) => {
-
   const url =  `https://api.openweathermap.org/data/2.5/forecast?q=${city},us&appid=${API_KEY}`;
 
   fetch(url)
@@ -27,8 +26,6 @@ export const currentWeather = (city) => (dispatch) => {
   fetch(api)
   .then(res => res.json())
   .then(current => {
-
-
     return dispatch({
       type: CURRENT_WEATHER,
       payload: current
@@ -37,8 +34,6 @@ export const currentWeather = (city) => (dispatch) => {
 }
 
 export const hikingTrails = (city) => (dispatch) => {
-  console.log("i am lon?", city)
-
   const lon = city.lon
   const lat = city.lat
   const hikeURL = `https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lon}&maxDistance=15&maxResults=100&key=200337409-b60064688dd8999085dede640c0a7c95`
@@ -46,8 +41,6 @@ export const hikingTrails = (city) => (dispatch) => {
   fetch(hikeURL)
   .then(res => res.json())
   .then(hiking =>{
-    console.log("iam hiking res", hiking)
-
     return dispatch({
       type: GET_TRAILS,
       payload: hiking
@@ -57,20 +50,14 @@ export const hikingTrails = (city) => (dispatch) => {
 }
 
 export const beerPlaces = (city) => (dispatch) => {
-    console.log("am i a beer place", city)
-
     const beerURL = `http://beermapping.com/webservice/loccity/47c542bc8fa92ec6556cab99a86d9662/${city}&s=json`
 
     fetch(beerURL)
     .then(res=> res.json())
     .then(beer =>{
-      console.log("i am beer res", beer)
       return dispatch({
         type: GET_BEER,
         payload: beer
       })
     })
 }
-
-
-// `https://api.openweathermap.org/data/2.5/weather?q=${city},us&appid=${API_KEY}` THIS IS FOR CURRENT WEATHER TO ADD

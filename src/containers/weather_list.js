@@ -9,9 +9,6 @@ import Beer from '../components/beer'
 import { Container, Row, Col } from 'reactstrap';
 import Grid from 'react-css-grid'
 
-
-
-
 class WeatherList extends Component{
 
   renderWeather = () => {
@@ -104,7 +101,7 @@ class WeatherList extends Component{
         </div>
           <div className = "breweryComponent">
 
-            
+
             {this.renderBeer()}
           </div>
       </Fragment>
