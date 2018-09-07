@@ -6,6 +6,7 @@ import { Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button } from 'reactstrap';
 
 
+
 class HikingTrails extends Component {
 
   renderTrails = () => {
