@@ -14,27 +14,26 @@ class HikingTrails extends Component {
       const trail= this.props.trails.trails.map(t => {
         return(
             <div className="card" style={{width: 40 + 'rem' }}>
-              <img className="card-img-top" src={t.imgMedium ? ( t.imgMedium) : ("http://appalachiantrail.org/images/default-source/default-album/trailfocus.jpg?sfvrsn=2")} />
+              <img className="card-img-top" src={t.imgSqSmall ? ( t.imgSqSmall) : ("http://appalachiantrail.org/images/default-source/default-album/trailfocus.jpg?sfvrsn=2")} />
                 <div className="card-body">
                   <h1 className="card-title">{t.name}</h1>
                     <h2 className="card-text">{t.location} </h2>
-                      <h3 className="card-text">Difficulty: {t.difficulty} </h3>
-                        <h5 className="card-text">{t.summary} </h5>
-                        </div>
+                      <h3 className="card-text">{t.summary} </h3>
+
               <ul className="list-group list-group-flush">
+              <li className="list-group-item">Difficulty: {t.difficulty}</li>
               <li className="list-group-item">Length: {t.length} miles</li>
               <li className="list-group-item">Ascent: {t.ascent} ft, Descent: {t.descent} ft</li>
               <li className="list-group-item">Conditions: {t.conditionStatus}, {t.conditionDetails} </li>
               <li className="list-group-item">High: {t.high} ft, Low: {t.low}</li>
               <li className="list-group-item">Stars: {t.stars}</li>
+              <li className="list-group-item"><a href={t.url} target="_blank" rel="noopener noreferrer" className="card-link">Trail Information</a></li>
               </ul>
-
-        <div className="card-body">
-        <a href={t.url} target="_blank" rel="noopener noreferrer" className="card-link">Trail Information</a>
-        </div>
+              </div>
     </div>
         )
       })
+
 
       return(
         <div className = "row">
