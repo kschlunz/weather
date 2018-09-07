@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
+
 class HikingFilter extends Component{
 
   state = {
@@ -17,9 +18,18 @@ toggleList(){
     listOpen: !prevState.listOpen
   }))
 }
+
+renderDifficultyList = () => {
+    console.log("am i your list", this.props.data)
+
+}
+
+
 render(){
-  const{list} = this.props.data
+
+
   const{listOpen, headerTitle} = this.state
+
   return(
 
     <div className="dd-wrapper">
@@ -32,10 +42,12 @@ render(){
         }
     </div>
      {listOpen && <ul className="dd-list">
-       { list ? list.map((item) => (
+      { this.props.data ?
+         this.props.data.map((item) => (
          <li className="dd-list-item" >{item.difficulty}</li>
        )) : "loading"}
       </ul>}
+
     </div>
   )
 }
