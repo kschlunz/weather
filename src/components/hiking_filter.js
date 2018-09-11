@@ -1,57 +1,25 @@
 import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
 
-class HikingFilter extends Component{
-
-  state = {
-    listOpen: false,
-    headerTitle: this.props.title
-  }
-
-  handleClickOutside(){
-  this.setState({
-    listOpen: false
-  })
-}
-toggleList(){
-  this.setState(prevState => ({
-    listOpen: !prevState.listOpen
-  }))
-}
-
-renderDifficultyList = () => {
-    console.log("am i your list", this.props.data)
-
-}
-
-
-render(){
-
-
-  const{listOpen, headerTitle} = this.state
-
+const HikingFilter = (props) => {
+  console.log("i am props in HikingFilter", props)
   return(
+    <div>
+      <select>
 
-    <div className="dd-wrapper">
-      <h1>Hi am i your drop down </h1>
-    <div className="dd-header" onClick={() => this.toggleList()}>
-        <div className="dd-header-title">{headerTitle}</div>
-        {listOpen
-          ? <FontAwesome name="angle-up" size="2x"/>
-          : <FontAwesome name="angle-down" size="2x"/>
-        }
+      </select>
     </div>
-     {listOpen && <ul className="dd-list">
-      { this.props.data ?
-         this.props.data.map((item) => (
-         <li className="dd-list-item" >{item.difficulty}</li>
-       )) : "loading"}
-      </ul>}
+  );
 
-    </div>
-  )
-}
 
+
+  HikingFilter.propTypes = {
+    title: React.PropTypes.string.isRequired,
+    options: React.PropTypes.array.isRequired,
+    selectedOption: React.PropTypes.string,
+    controlFunc: React.PropTypes.func.isRequired,
+    placeholder: React.PropTypes.string
+  };
 
 
 }
