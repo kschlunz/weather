@@ -6,7 +6,14 @@ const HikingFilter = (props) => {
   return(
     <div>
       <select>
-
+      <option value="">{props.title}</option>
+    {props.options.map(opt => {
+      return (
+        <option
+          key={opt}
+          value={opt}>{opt}</option>
+      );
+    })}
       </select>
     </div>
   );
