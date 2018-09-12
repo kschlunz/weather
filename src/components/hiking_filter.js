@@ -6,6 +6,8 @@ const HikingFilter = (props) => {
   return(
     <div>
       <select>
+      value={props.selectedOption}
+      onChange={props.controlFunc}
       <option value="">{props.title}</option>
     {props.options.map(opt => {
       return (
