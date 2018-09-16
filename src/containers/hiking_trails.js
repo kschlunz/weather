@@ -8,6 +8,15 @@ import HikingFilter from '../components/hiking_filter';
 
 
 class HikingTrails extends Component {
+  state = {
+    difficultyOptions: [],
+    trailSelection: ''
+
+  }
+
+  handleAgeRangeSelect = (e) => {  
+  this.setState({ trailSelection: e.target.value });
+}
 
   renderTrails = () => {
     console.log("TRAILS", this.props.trails.trails)
