@@ -14,7 +14,7 @@ class HikingTrails extends Component {
 
   }
 
-  handleAgeRangeSelect = (e) => {  
+  handleTrailSelect = (e) => {
   this.setState({ trailSelection: e.target.value });
 }
 
@@ -54,7 +54,7 @@ class HikingTrails extends Component {
   renderFilter = () => {
     if(this.props.trails.trails){
       return(
-          <h1><HikingFilter data = {this.props.trails.trails} title= "Difficulty" options= {["green", "greenBlue", "blue", "blueBlack", "black"]} /></h1>
+          <h1><HikingFilter data = {this.props.trails.trails} title= "Difficulty" options= {["green", "greenBlue", "blue", "blueBlack", "black"]} e = {this.props.handleATrailSelect}/></h1>
       )
     }
   }
