@@ -15,7 +15,7 @@ class HikingTrails extends Component {
   }
 
   handleTrailSelect = (e) => {
-    console.log(e.target.value)
+    console.log("selected trail value, function", e.target.value)
   this.setState({ trailSelection: e.target.value });
 }
 
@@ -55,7 +55,7 @@ class HikingTrails extends Component {
   renderFilter = () => {
     if(this.props.trails.trails){
       return(
-          <h1><HikingFilter data = {this.props.trails.trails} title= "Difficulty" options= {["green", "greenBlue", "blue", "blueBlack", "black"]} e = {this.props.handleATrailSelect}/></h1>
+          <h1><HikingFilter data = {this.props.trails.trails} title= "Difficulty" options= {["green", "greenBlue", "blue", "blueBlack", "black"]} e = {this.handleTrailSelect}/></h1>
       )
     }
   }
