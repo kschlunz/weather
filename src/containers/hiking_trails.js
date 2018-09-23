@@ -15,6 +15,7 @@ class HikingTrails extends Component {
   }
 
   handleTrailSelect = (e) => {
+    console.log(e.target.value)
   this.setState({ trailSelection: e.target.value });
 }
 
