@@ -13,7 +13,8 @@ const HikingFilter = (props) => {
       return (
         <option
           key={opt}
-          value={opt}>{opt}</option>
+          value={props.e.handleTrailSelect}>{opt}</option>
+
       );
     })}
       </select>
