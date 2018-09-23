@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
 
 const HikingFilter = (props) => {
-  console.log("i am props in HikingFilter", props)
+  console.log("i am props in HikingFilter", props.e)
   return(
     <div>
       <select>
@@ -13,7 +13,7 @@ const HikingFilter = (props) => {
       return (
         <option
           key={opt}
-          value={props.e.handleTrailSelect}>{opt}</option>
+          value={opt}>{opt}</option>
 
       );
     })}
